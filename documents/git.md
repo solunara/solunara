@@ -32,20 +32,24 @@ user.email=frodeli@163.com
 $ git log -n5 --oneline
 ```
 
+
 以图形化的方式查看所有分支的提交日志：
 ```
 $ git log --all --graph
 ```
+
 
 以图形化，简洁的方式查看最近5次所有分支的提交日志：
 ```
 $ git log --oneline --all -n5 --graph
 ```
 
+
 打开图形界面：
 ```
 $ gitk
 ```
+
 
 查看所有分支名称及最近一次的信息：
 ```
