@@ -191,6 +191,14 @@ $ git rebase -i f09122cf21
 ![git_rebase-i_merge_commit-2](../pictures/git/git_rebase-i_merge_commit-2.png)
 
 
+## 多人合作
+当多人基于同一个分支进行协作时，其他人修改了不同的文件或者同一文件的不同区域，并且已经push到公共仓库中，自己还处于开发中，当自己开发完了后push时会被拒绝，同时提示fast-forwards，解决方法：先用fetch命令拿到远端仓库最新的全部分支，然后将本地的分支merge过去，再push.
+```
+$ git fetch
+$ git merge origin/<branch_name>
+$ git push origin <branch_name>
+```
+
 ## commit,tree,blob三个对象的关系
 commit: 代表一次提交，是此次提交中所有文件夹及文件的快照；
 
