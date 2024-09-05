@@ -192,6 +192,11 @@ $ git rebase -i f09122cf21
 
 
 ## 多人合作
+
+> ⚠ 禁止对多人合作的公共分支使用push -f操作，会覆盖别人的内容
+
+> ⚠ 禁止对多人合作的公共分支做rebase操作，会导致别人无法push
+
 当多人基于同一个分支进行协作时，其他人修改了不同的文件或者同一文件的不同区域，并且已经push到公共仓库中，自己还处于开发中，当自己开发完了后push时会被拒绝，同时提示fast-forwards，解决方法：先用fetch命令拿到远端仓库最新的全部分支，然后将本地的分支merge过去，再push.
 ```
 $ git fetch
@@ -238,3 +243,38 @@ config： 它存放了跟本地仓库相关的配置信息。
 refs： 描述了全部分支索引和tag信息。
 
 objects: 存储了全部文件及hash值。
+
+# Team workflow
+## 如何选择适合自己团队的工作流程
+### 考虑的因素
+1.团队人员的组成
+
+2.团队的研发设计能力
+
+3.输出的产品特征
+
+4.项目的难易程度
+
+### 主干开发流程
+适合适合敏捷开发，比如google，facebook都在使用，每个人的开发能够很快速的集成到主干分支上，团队其它成员能很快感知到这个变更，能够进行快速迭代，方便持续集成。
+
+缺点：需要有一个很强的特性切换机制来保证每次变更的质量。对于比较复杂的，功能比较多的项目不太适用。对开发人员能力要求比较高。
+
+![trunk-development](../pictures/git/trunk-development.png)
+
+### Git flow
+适用于研发周期比较长，质量要求比价高的产品，核心也是采用特性分支的开发方式，但是流程比较复杂，所以该流程很少被使用。
+
+![git_flow](../pictures/git/git_flow.png)
+
+### Github flow
+基于一条master分支，工作在特性分支，最后特性分支合并到mater分支，mater分支永远保持最新且可用， 适合就一套服务且服务就一个版本的情况。
+
+![github_flow](../pictures/git/github_flow.png)
+
+### Gitlab flow
+![gitlab_flow](../pictures/git/gitlab_flow.png)
+
+![gitlab_flow_env](../pictures/git/gitlab_flow_env.png)
+
+![gitlab_flow_stable](../pictures/git/gitlab_flow_stable.png)
