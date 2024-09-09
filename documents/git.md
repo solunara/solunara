@@ -151,6 +151,11 @@ $ git branch -D <branch_name>
 $ git reset --hard <commit_hash>
 ```
 
+将某个分支强制回退到指定的commit hash(谨慎使用):
+```
+$ git push -f origin <commit_hash>:<commit_name>
+```
+
 修改当前分支最近一次提交的描述信息：
 ```
 $ git commit --amend
