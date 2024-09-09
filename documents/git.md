@@ -27,29 +27,35 @@ user.name=frodelee
 user.email=frodeli@163.com
 ```
 ## 常用命令
+回退最近一次的commit -am，但保留文件的更改：
+```
+$ git reset --soft HEAD~1
+```
+
+回退最近一次的commit -am，不保留文件的更改：
+```
+$ git reset --hard HEAD~1
+```
+
 以简洁的单行显示方式查看当前分支最近的5次提交log：
 ```
 $ git log -n5 --oneline
 ```
-
 
 以图形化的方式查看所有分支的提交日志：
 ```
 $ git log --all --graph
 ```
 
-
 以图形化，简洁的方式查看最近5次所有分支的提交日志：
 ```
 $ git log --oneline --all -n5 --graph
 ```
 
-
 打开图形界面：
 ```
 $ gitk
 ```
-
 
 查看所有分支名称及最近一次的信息：
 ```
